@@ -1,0 +1,4 @@
+burn the code and while keeping the module plugged in, remove the wire from 
+ground, plud the wire attached to gpio 0 to data out of DHT11.
+
+Copy the library files in your arduino library folder
