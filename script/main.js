@@ -1,14 +1,30 @@
-var val = [0.0, 1.0];
+ var val = [0.0, 1.0];
+ 
+ for (var i = 1; i <= 5; i++) {
+    $.ajax({
+        url: 'https://api.thingspeak.com/channels/693492/field/1/last.txt',
+        type: 'GET',
+        beforeSend: function() {
+            console.log("Downloading ");
+        },
+        async: false,
+        complete: function() {
+        },
+        success: function(data) {
+            console.log("Download Success ");
+			var text = data;
+			val.push(parseFloat(text));
+        }
+    });
+}
 
-$.get("https://api.thingspeak.com/channels/693492/field/1/last.txt", function( data ) {
-  var text = data;
-  val.push(parseFloat(text));
-
+ 
+window.onload = function (){ 
 var chart = new CanvasJS.Chart("chartContainer", {
 	animationEnabled: true,
 	theme: "light2",
 	title:{
-		text: "My Fukcing Chart"
+		text: "ApplDore chart"
 	},
 	axisY:{
 		includeZero: false
@@ -33,4 +49,5 @@ var chart = new CanvasJS.Chart("chartContainer", {
 });
 chart.render();
 
-}); 	
+}
+	
