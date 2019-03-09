@@ -10,14 +10,15 @@
 //    }, 3000)
 // }
  
-setInterval(function(){
 var val = [0.0, 1.0];
+setInterval(function(){
+//var val = [0.0, 1.0];
  
 var numbers = [1,2,3,4,5];
 
  //$.each(numbers, function(i, numbers){
 //setInterval(function(){
-for (var i = 1; i <= 5; i++) {
+//for (var i = 1; i <= 5; i++) {
     $.ajax({
         url: 'https://api.thingspeak.com/channels/693492/field/1/last.txt',
         type: 'GET',
@@ -42,8 +43,8 @@ for (var i = 1; i <= 5; i++) {
 
         }
 	});
-	}
-//});
+	//}
+//});	
 //}, 10000);
 
  
@@ -60,18 +61,18 @@ var chart = new CanvasJS.Chart("chartContainer", {
 	data: [{        
 		type: "line",       
 		dataPoints: [
-			{ y: 200 },
-			{ y: 300 },
-			{ y: 400, indexLabel: "highest",markerColor: "red", markerType: "triangle" },
-			{ y: 460 },
+			{ y: val[0] },
+			{ y: val[1] },
 			{ y: val[2] },
-			{ y: 500 },
-			{ y: 480 },
-			{ y: 480 },
-			{ y: 410 , indexLabel: "lowest",markerColor: "DarkSlateGrey", markerType: "cross" },
-			{ y: 500 },
-			{ y: 480 },
-			{ y: 510 }
+			{ y: val[3] },
+			{ y: val[4] },
+			{ y: val[5] },
+			{ y: val[6] },
+			{ y: val[7] },
+			{ y: val[8] },
+			{ y: val[9] },
+			{ y: val[10] },
+			{ y: val[11] }
 		]
 	}]
 });
